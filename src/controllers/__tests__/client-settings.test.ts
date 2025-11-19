@@ -78,6 +78,7 @@ describe('ClientSettings Controllers', () => {
     });
 
     it('should return 500 on DAL error', async () => {
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       mockRequest = {
         params: { clientId: '1' },
       };
@@ -88,6 +89,7 @@ describe('ClientSettings Controllers', () => {
 
       expect(statusMock).toHaveBeenCalledWith(500);
       expect(jsonMock).toHaveBeenCalledWith({ error: 'Internal server error' });
+      consoleErrorSpy.mockRestore();
     });
   });
 
@@ -187,6 +189,7 @@ describe('ClientSettings Controllers', () => {
     });
 
     it('should return 500 on DAL error', async () => {
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const clientId = 1;
       const { clientId: _, ...settingsWithoutClientId } = getDefaultClientSettings(clientId);
       mockRequest = {
@@ -200,6 +203,7 @@ describe('ClientSettings Controllers', () => {
 
       expect(statusMock).toHaveBeenCalledWith(500);
       expect(jsonMock).toHaveBeenCalledWith({ error: 'Internal server error' });
+      consoleErrorSpy.mockRestore();
     });
   });
 });

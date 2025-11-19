@@ -12,27 +12,26 @@ Welcome to the Seetickets backend test for new Hires (Mid Level). The purpose of
 
 This API uses 2 data sources, one SQL and one NoSQL. Events and Tickets are stored in a SQL database while the settings should be stored as documents in Mongo DB.
 
-## What will you need to have installed to do this test
+## Postman Collection
 
-- Docker (With docker compose to run the containers for the DBs)
-- NVM to use the node version in the project
+A Postman collection is available for testing all API endpoints.
 
-## Installing and running the project
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://web.postman.co/workspace/My-Workspace~c6afc956-834a-46e4-8950-70f88f36f7ef/collection/3968266-6f1ed60c-8c7d-44f5-8bc5-0a0e88db9cf1?action=share&source=copy-link&creator=3968266)
 
-- Fork this repository into your own GitHub
-- Clone the fork in your machine
-- Run yarn install to install the packages (We don't want to use NPM as all of our projects use yarn)
-- Run `docker compose up` to get the databases up and running
+**To import the collection:**
+1. Click the button above or copy the link below
+2. Open Postman
+3. Click on "Import" in the top left
+4. Select "Link" tab
+5. Paste the collection URL
+6. Click "Continue" and then "Import"
 
-### Running migrations for the Postgres DB
+**Collection URL:**
+```
+https://web.postman.co/workspace/My-Workspace~c6afc956-834a-46e4-8950-70f88f36f7ef/collection/3968266-6f1ed60c-8c7d-44f5-8bc5-0a0e88db9cf1?action=share&source=copy-link&creator=3968266
+```
 
-- Run `yarn migrations:latest` to migrate the DB
-- Run `yarn db:seed` at least 2 times to create some data in the database, The more you run it the more data you will have to work with
-
-### Run the API
-
-- Run `yarn start` to start the express API (it uses nodemon to listen to code changes)
-- The API will be available at `http://localhost:3000`
+The collection includes pre-configured requests for all endpoints with example request bodies and parameters.
 
 ## API Endpoints
 
@@ -241,23 +240,24 @@ Returns the updated client settings object (same structure as GET response).
 
 ---
 
-## Postman Collection
+## What will you need to have installed to do this test
 
-A Postman collection is available for testing all API endpoints.
+- Docker (With docker compose to run the containers for the DBs)
+- NVM to use the node version in the project
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://web.postman.co/workspace/My-Workspace~c6afc956-834a-46e4-8950-70f88f36f7ef/collection/3968266-6f1ed60c-8c7d-44f5-8bc5-0a0e88db9cf1?action=share&source=copy-link&creator=3968266)
+## Installing and running the project
 
-**To import the collection:**
-1. Click the button above or copy the link below
-2. Open Postman
-3. Click on "Import" in the top left
-4. Select "Link" tab
-5. Paste the collection URL
-6. Click "Continue" and then "Import"
+- Fork this repository into your own GitHub
+- Clone the fork in your machine
+- Run yarn install to install the packages (We don't want to use NPM as all of our projects use yarn)
+- Run `docker compose up` to get the databases up and running
 
-**Collection URL:**
-```
-https://web.postman.co/workspace/My-Workspace~c6afc956-834a-46e4-8950-70f88f36f7ef/collection/3968266-6f1ed60c-8c7d-44f5-8bc5-0a0e88db9cf1?action=share&source=copy-link&creator=3968266
-```
+### Running migrations for the Postgres DB
 
-The collection includes pre-configured requests for all endpoints with example request bodies and parameters.
+- Run `yarn migrations:latest` to migrate the DB
+- Run `yarn db:seed` at least 2 times to create some data in the database, The more you run it the more data you will have to work with
+
+### Run the API
+
+- Run `yarn start` to start the express API (it uses nodemon to listen to code changes)
+- The API will be available at `http://localhost:3000`
