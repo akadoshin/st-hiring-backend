@@ -10,7 +10,7 @@
     },
     "scripts": {
         "start": "yarn nodemon src/index.ts",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest --watch",
         "migrations:make": "yarn knex migrate:make --migrations-directory src/database/migrations ",
         "migrations:latest": "yarn knex migrate:latest --knexfile ./src/knexfile.ts --migrations-directory ./database/migrations",
         "migrations:down": "yarn knex migrate:down --knexfile ./src/knexfile.ts --migrations-directory ./database/migrations",
@@ -21,7 +21,8 @@
         "express": "4.19.2",
         "knex": "^3.1.0",
         "mongodb": "^6.8.0",
-        "pg": "^8.12.0"
+        "pg": "^8.12.0",
+        "zod": "^4.1.12"
     },
     "devDependencies": {
         "@faker-js/faker": "^8.4.1",
