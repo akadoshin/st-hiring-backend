@@ -2,6 +2,21 @@
 
 Welcome to the Seetickets backend test for new Hires (Mid Level). The purpose of this test is to evaluate a few assigned tasks given a codebase.
 
+## Environment Setup
+
+Before running the project, you need to set up your environment variables. A template file (`.env.example`) is provided with all the required configuration variables.
+
+**To set up your environment:**
+
+Copy the `.env.example` file to create your own `.env` file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+
+**Note:** The default values in `.env.example` match the Docker Compose configuration, so you can use them as-is if you're running the databases via Docker Compose.
+
 ### Postman Collection
 
 A Postman collection is available for testing all API endpoints.
