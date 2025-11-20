@@ -6,4 +6,4 @@ export interface Ticket {
   price: number;
   createdAt: Date;
   updatedAt: Date;
-};
+}

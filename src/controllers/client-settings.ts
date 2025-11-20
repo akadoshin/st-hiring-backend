@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import express, { Request, Response, Router } from 'express';
 
 import { getDefaultClientSettings } from '../entity/client-settings';
 import { validateClientId, validateClientSettings, ValidationError } from '../utils/validation';
@@ -47,3 +47,12 @@ export const createPutClientSettingsController =
       res.status(500).json({ error: 'Internal server error' });
     }
   };
+
+export const createClientSettingsRouter = ({ clientSettingsDAL }: { clientSettingsDAL: ClientSettingsDAL }): Router => {
+  const router = express.Router();
+
+  router.get('/:clientId', createGetClientSettingsController({ clientSettingsDAL }));
+  router.put('/:clientId', createPutClientSettingsController({ clientSettingsDAL }));
+
+  return router;
+};

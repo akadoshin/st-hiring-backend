@@ -9,7 +9,8 @@ import { createTicketDAL } from './dal/tickets.dal';
 import { createClientSettingsDAL } from './dal/client-settings.dal';
 
 import { createGetEventsController } from './controllers/get-events';
-import { createGetClientSettingsController, createPutClientSettingsController } from './controllers/client-settings';
+import { createEventsRouter } from './controllers/optimized-events/router';
+import { createClientSettingsRouter } from './controllers/client-settings';
 
 // initialize Knex
 const Knex = knex(dbConfig.development);
@@ -31,10 +32,10 @@ app.use('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.use('/events', createGetEventsController({ eventsDAL: eventDAL, ticketsDAL: TicketDAL }));
+app.get('/events', createGetEventsController({ eventsDAL: eventDAL, ticketsDAL: TicketDAL }));
 
-app.get('/client-settings/:clientId', createGetClientSettingsController({ clientSettingsDAL: ClientSettingsDAL }));
-app.put('/client-settings/:clientId', createPutClientSettingsController({ clientSettingsDAL: ClientSettingsDAL }));
+app.use('/optimized-events', createEventsRouter({ eventsDAL: eventDAL, ticketsDAL: TicketDAL }));
+app.use('/client-settings', createClientSettingsRouter({ clientSettingsDAL: ClientSettingsDAL }));
 
 app.use('/', (_req, res) => {
   res.json({ message: 'Hello API' });

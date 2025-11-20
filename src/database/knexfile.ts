@@ -17,10 +17,10 @@ const dbConfig: { [key: string]: Knex.Config } = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './database/migrations',
+      directory: './migrations',
     },
     seeds: {
-      directory: './database/seeds',
+      directory: './seeds',
     },
   },
 };
